@@ -84,3 +84,11 @@ https://www.youtube.com/watch?v=1OEu9C51K2A
 
 The name rule, if something has a name it's an _lvalue_, if not then it's a 
 _rvalue_.
+
+# Running static checks on source code using clang-tidy
+
+In Arch Linux the static analysis tool clang-tidy is available in the package
+`clang-tools-extra`.
+
+It can be invoked using the following in the terminal:
+`clang-tidy main.cpp -- -std=c++1y`.
