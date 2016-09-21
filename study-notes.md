@@ -95,3 +95,11 @@ In C++11 it can also be used to make a lambda function able to change variables
 in its captured scope.
 
 Link: http://stackoverflow.com/a/105061
+
+# Running static checks on source code using clang-tidy
+
+In Arch Linux the static analysis tool clang-tidy is available in the package
+`clang-tools-extra`.
+
+It can be invoked using the following in the terminal:
+`clang-tidy main.cpp -- -std=c++1y`.
