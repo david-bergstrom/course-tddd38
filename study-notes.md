@@ -84,3 +84,14 @@ https://www.youtube.com/watch?v=1OEu9C51K2A
 
 The name rule, if something has a name it's an _lvalue_, if not then it's a 
 _rvalue_.
+
+# The keyword "Mutable"
+
+A `const` method cannot change any of the member variables of the class
+instance. However if a member variable is marked with the keyword mutable it
+can be changed. This is used in special cases.
+
+In C++11 it can also be used to make a lambda function able to change variables
+in its captured scope.
+
+Link: http://stackoverflow.com/a/105061
