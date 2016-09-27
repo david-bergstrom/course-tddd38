@@ -26,6 +26,7 @@ void cc() {
 
 	cout << "Before change: " << number << endl;
 
+	// Changing the number using the non-const reference
 	another_reference = 10;
 
 	cout << "After change: " << number << endl;
@@ -74,4 +75,9 @@ int main() {
 	sc();
 	cc();
 	dc();
+	// There is also reinterpret_cast which simply reinterprets the memory as
+	// something else, which can be quite dangerous.
+	
+	// Finnaly there are two kinds of casting: C-style cast (type) value and
+	// function-style cast type(value) both which should be avoided.
 }
