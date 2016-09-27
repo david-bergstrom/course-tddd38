@@ -103,3 +103,15 @@ In Arch Linux the static analysis tool clang-tidy is available in the package
 
 It can be invoked using the following in the terminal:
 `clang-tidy main.cpp -- -std=c++1y`.
+
+# Auto type deduction in ranged based for loops
+
+Summary from taken from [Petr Zemeks blog entry with the same 
+name](https://blog.petrzemek.net/2016/08/17/auto-type-deduction-in-range-based-for-loops/).
+
+* Use `auto` when you want to work with a copy of elements in the range.
+* Use `auto&` when you want to modify elements in the range in non-generic 
+  code.
+* Use `auto&&` when you want to modify elements in the range in generic code.
+* Use `const auto&` when you want read-only access to elements in the range 
+  (even in generic code).
