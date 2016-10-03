@@ -5,7 +5,7 @@ SOURCES=main.cc smart_pointer.cc
 OBJECTS=$(SOURCES:.cc=.o)
 EXECUTABLE=a.out
 
-all: $(SOURCES) $(EXECUTABLE)
+all: $(SOURCES) $(EXECUTABLE) tags
 	
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
@@ -14,4 +14,7 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o a.out
+	rm -f *.o a.out tags
+
+tags: $(SOURCES)
+	ctags *.cc *.h
