@@ -43,9 +43,27 @@ int* smart_pointer::operator->() {
     return ptr_;
 }
 
+bool smart_pointer::operator!() {
+    return ptr_ == nullptr;
+}
+
+bool smart_pointer::operator==(const smart_pointer& pointer) {
+    return ptr_ == pointer.ptr_;
+}
+
+bool smart_pointer::operator==(int* pointer) {
+    return ptr_ == pointer;
+}
+
+bool smart_pointer::operator!=(const smart_pointer& pointer) {
+    return ptr_ != pointer.ptr_;
+}
+
+bool smart_pointer::operator!=(int * pointer) {
+    return ptr_ != pointer;
+}
+
 void smart_pointer::copy(const smart_pointer & pointer) {
     // Copy On Create/Assign
     ptr_ = new int { *(pointer.ptr_) };
 }
-
-
