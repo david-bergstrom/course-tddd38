@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -g -ggdb -Wall -std=gnu++1z
+CFLAGS=-c -g -ggdb -Wall -std=gnu++1z -pedantic -Wextra -Werror
 LDFLAGS=-g -ggdb
 SOURCES=main.cc smart_pointer.cc
 OBJECTS=$(SOURCES:.cc=.o)
