@@ -1,6 +1,6 @@
 CC=g++
-CFLAGS=-c -Wall -std=gnu++1z
-LDFLAGS=
+CFLAGS=-c -g -ggdb -Wall -std=gnu++1z
+LDFLAGS=-g -ggdb
 SOURCES=main.cc smart_pointer.cc
 OBJECTS=$(SOURCES:.cc=.o)
 EXECUTABLE=a.out
@@ -10,7 +10,7 @@ all: $(SOURCES) $(EXECUTABLE) tags
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-.cpp.o:
+.cc.o:
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:

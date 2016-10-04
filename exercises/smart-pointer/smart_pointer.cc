@@ -25,7 +25,7 @@ smart_pointer::~smart_pointer() {
 }
 
 smart_pointer& smart_pointer::operator=(const smart_pointer& pointer) {
-    copy(pointer);
+    copy(ptr_);
     return *this;
 }
 
