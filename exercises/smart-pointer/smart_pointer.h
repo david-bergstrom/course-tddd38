@@ -10,11 +10,11 @@ class smart_pointer {
         ~smart_pointer();
         smart_pointer& operator=(const smart_pointer&);
         smart_pointer& operator=(smart_pointer&&) noexcept;
-        bool operator!();
-        bool operator==(const smart_pointer&);
-        bool operator==(int*);
-        bool operator!=(const smart_pointer&);
-        bool operator!=(int*);
+        bool operator!() const;
+        bool operator==(const smart_pointer&) const;
+        bool operator==(int*) const;
+        bool operator!=(const smart_pointer&) const;
+        bool operator!=(int*) const;
         int& operator*();
         int* operator->();
     private:

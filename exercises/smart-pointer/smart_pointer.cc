@@ -46,23 +46,23 @@ int* smart_pointer::operator->() {
     return ptr_;
 }
 
-bool smart_pointer::operator!() {
+bool smart_pointer::operator!() const {
     return ptr_ == nullptr;
 }
 
-bool smart_pointer::operator==(const smart_pointer& pointer) {
+bool smart_pointer::operator==(const smart_pointer& pointer) const {
     return ptr_ == pointer.ptr_;
 }
 
-bool smart_pointer::operator==(int* pointer) {
+bool smart_pointer::operator==(int* pointer) const {
     return ptr_ == pointer;
 }
 
-bool smart_pointer::operator!=(const smart_pointer& pointer) {
+bool smart_pointer::operator!=(const smart_pointer& pointer) const {
     return ptr_ != pointer.ptr_;
 }
 
-bool smart_pointer::operator!=(int * pointer) {
+bool smart_pointer::operator!=(int * pointer) const {
     return ptr_ != pointer;
 }
 
