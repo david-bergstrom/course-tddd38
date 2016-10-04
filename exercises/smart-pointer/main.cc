@@ -1,8 +1,13 @@
-#include <iostream>
 #include <assert.h>
+#include <utility>
 #include "smart_pointer.h"
 
 using namespace std;
+
+smart_pointer calculate() {
+    int * raw { new int { 8 * 8 } };
+    return smart_pointer(raw);
+}
 
 void test() {
     // Initialization: constructor taking a raw pointer to an object
@@ -10,6 +15,7 @@ void test() {
     smart_pointer smart { raw };
 
     assert(!!smart);
+    //assert(smart);
     assert(smart == smart);
     assert(!(smart != smart));
 
@@ -37,10 +43,34 @@ void test() {
     smart_pointer smart2 { new int { 3 } };
     // The following line does not compile
     //delete smart2;
+
+    // Trying the move constructor
+    smart_pointer smart3 { calculate() };
+
+    // Trying out the move assignment using swap
+    smart_pointer smart4 { new int { 3 } };
+    smart_pointer smart5 { new int { 4 } };
+    std::swap(smart4, smart5);
+    assert(*smart4 == 4);
+    assert(*smart5 == 3);
+}
+
+void pointer_variants() {
+    // A pointer to a constant integer
+    //const int* ptr1 { new int { 3 } };
+    // A constant pointer to an int
+    int* const ptr2 { new int { 4 } };
+    // A constant pointer to a constant integer
+    //const int* const ptr3 { new int { 5 } };
+
+    // Which one can be used with smart_pointer?
+    //smart_pointer sp1 { ptr1 };
+    smart_pointer sp2 { ptr2 };
+    //smart_pointer sp3 { ptr3 };
 }
 
 int main() {
     test();
-
+    pointer_variants();
     return 0;
 }

@@ -1,4 +1,5 @@
 #include "smart_pointer.h"
+#include <iostream>
 
 smart_pointer::smart_pointer() noexcept {
     ptr_ = nullptr;
@@ -13,9 +14,10 @@ smart_pointer::smart_pointer(const smart_pointer& pointer) {
 }
 
 // Move constructor
-smart_pointer::smart_pointer(smart_pointer&& pointer) {
+smart_pointer::smart_pointer(smart_pointer&& pointer) noexcept {
     ptr_ = pointer.ptr_;
     pointer.ptr_ = nullptr;
+    std::cout << "Used move constructor" << std::endl;
 }
 
 smart_pointer::~smart_pointer() {
@@ -29,9 +31,10 @@ smart_pointer& smart_pointer::operator=(const smart_pointer& pointer) {
     return *this;
 }
 
-smart_pointer& smart_pointer::operator=(smart_pointer&& pointer) {
+smart_pointer& smart_pointer::operator=(smart_pointer&& pointer) noexcept {
     ptr_ = pointer.ptr_;
     pointer.ptr_ = nullptr;
+    std::cout << "Used move assignment" << std::endl;
     return *this;
 }
 

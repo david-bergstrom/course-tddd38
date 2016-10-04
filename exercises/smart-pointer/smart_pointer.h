@@ -6,10 +6,10 @@ class smart_pointer {
         smart_pointer() noexcept;
         smart_pointer(int*);
         smart_pointer(const smart_pointer&);
-        smart_pointer(smart_pointer&&);
+        smart_pointer(smart_pointer&&) noexcept;
         ~smart_pointer();
         smart_pointer& operator=(const smart_pointer&);
-        smart_pointer& operator=(smart_pointer&&);
+        smart_pointer& operator=(smart_pointer&&) noexcept;
         bool operator!();
         bool operator==(const smart_pointer&);
         bool operator==(int*);
