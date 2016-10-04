@@ -3,7 +3,7 @@
 
 class smart_pointer {
     public:
-        smart_pointer();
+        smart_pointer() noexcept;
         smart_pointer(int*);
         smart_pointer(const smart_pointer&);
         smart_pointer(smart_pointer&&);

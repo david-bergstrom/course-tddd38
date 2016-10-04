@@ -1,6 +1,6 @@
 #include "smart_pointer.h"
 
-smart_pointer::smart_pointer() {
+smart_pointer::smart_pointer() noexcept {
     ptr_ = nullptr;
 }
 
