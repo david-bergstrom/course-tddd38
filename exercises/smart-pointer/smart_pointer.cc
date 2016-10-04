@@ -9,7 +9,7 @@ smart_pointer::smart_pointer(int* raw_pointer) {
 }
 
 smart_pointer::smart_pointer(const smart_pointer& pointer) {
-    copy(ptr_);
+    copy(pointer);
 }
 
 // Move constructor
@@ -25,7 +25,7 @@ smart_pointer::~smart_pointer() {
 }
 
 smart_pointer& smart_pointer::operator=(const smart_pointer& pointer) {
-    copy(ptr_);
+    copy(pointer);
     return *this;
 }
 
