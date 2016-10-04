@@ -17,7 +17,6 @@ class smart_pointer {
         bool operator!=(int*);
         int& operator*();
         int* operator->();
-        void debug();
     private:
         int* ptr_;
         void copy(const smart_pointer&);
