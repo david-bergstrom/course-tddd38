@@ -115,3 +115,35 @@ name](https://blog.petrzemek.net/2016/08/17/auto-type-deduction-in-range-based-f
 * Use `auto&&` when you want to modify elements in the range in generic code.
 * Use `const auto&` when you want read-only access to elements in the range 
   (even in generic code).
+
+# Polymorphism
+
+## Virtual methods
+
+Every method can be overridden in subclasses, but virtual methods are 
+different. If a regular method method gets overridden it only applies for that 
+class and pointers to that class. But if a virtual method is overridden it will 
+also work when the pointer is downcasted to a superclass.
+
+## Pure virtual method
+
+A virtual method with no definition. Syntactically their definition is replaced 
+with `=0`.
+
+## Abstract base classes
+
+An abstract base class is a class which has at least one pure virtual method 
+and thus cannot be instantiated. These classes are only to be used as base 
+classes.
+
+## NVI pattern
+
+For more advanced interfaces where there might exist a common behavior the 
+non-virtual interface design pattern might be useful.
+
+The interface consists of one public method which is not supposed to be 
+overridden while having a private virtual method which is supposed for the 
+purpose of overriding in the subclasses.
+
+The public method contains the common behaviour while the private method 
+contains the behavior specific to that particular superclass.
