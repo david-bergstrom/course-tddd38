@@ -38,14 +38,6 @@ smart_pointer& smart_pointer::operator=(smart_pointer&& pointer) noexcept {
     return *this;
 }
 
-int& smart_pointer::operator*() {
-    return *ptr_;
-}
-
-int* smart_pointer::operator->() {
-    return ptr_;
-}
-
 bool smart_pointer::operator!() const {
     return ptr_ == nullptr;
 }

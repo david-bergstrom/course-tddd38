@@ -69,8 +69,19 @@ void pointer_variants() {
     //smart_pointer sp3 { ptr3 };
 }
 
+void const_tests() {
+    const smart_pointer smart;
+    const smart_pointer smart2 { new int { 3 } };
+    const smart_pointer smart3 { smart2 };
+
+    assert(smart != smart2);
+    assert(*smart2 == *smart3);
+}
+
 int main() {
     test();
     pointer_variants();
+    const_tests();
+
     return 0;
 }
