@@ -5,7 +5,7 @@
 
 constexpr double PI = 3.1415;
 
-class Circle : GeometricObject {
+class Circle : public GeometricObject {
     public:
         Circle() : radius{ 1 } {};
         Circle(double r) : radius { r } {};

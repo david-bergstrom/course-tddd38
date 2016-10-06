@@ -6,7 +6,7 @@
 /*
  * Defines a Rectangle with a given width and height
  */
-class Rectangle : GeometricObject {
+class Rectangle : public GeometricObject {
     public:
         Rectangle() : width { 1 }, height { 1 } {};
         Rectangle(double w, double h) : width { w }, height { h } {};
