@@ -4,7 +4,11 @@
 #include <string>
 
 class Serializeable {
-    virtual std::string str() = 0;
+    public:
+        virtual ~Serializeable() = 0;
+        virtual std::string str() = 0;
 };
+
+Serializeable::~Serializeable() { }
 
 #endif

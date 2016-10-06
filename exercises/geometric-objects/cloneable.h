@@ -3,7 +3,10 @@
 
 class Cloneable {
     public:
+        virtual ~Cloneable() = 0;
         virtual Cloneable * clone() const = 0;
 };
+
+Cloneable::~Cloneable() { }
 
 #endif

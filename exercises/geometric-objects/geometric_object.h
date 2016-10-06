@@ -4,6 +4,11 @@
 #include "cloneable.h"
 #include "serializeable.h"
 
-class GeometricObject : public Cloneable, public Serializeable { };
+class GeometricObject : public Cloneable, public Serializeable {
+    public:
+        virtual ~GeometricObject() = 0;
+};
+
+GeometricObject::~GeometricObject() { }
 
 #endif
