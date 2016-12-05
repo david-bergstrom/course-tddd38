@@ -147,3 +147,11 @@ purpose of overriding in the subclasses.
 
 The public method contains the common behaviour while the private method 
 contains the behavior specific to that particular superclass.
+
+# Explicit
+
+If a compiler cannot find an comparison between two objects (maybe only works 
+for equality) it will make an implicit conversion of any two objects.
+
+It may use any method which takes no argument or any constructor which only 
+takes one argument.
