@@ -155,3 +155,63 @@ for equality) it will make an implicit conversion of any two objects.
 
 It may use any method which takes no argument or any constructor which only 
 takes one argument.
+
+# Smart pointers
+
+`auto_ptr` contains the raw pointer to the object and the ownership is given to 
+the last instance where the pointer was received. This might be problematic as 
+the last instance might not be were the data should be deleted. **Deprecated**
+
+`unique_ptr` (`scoped_ptr` in boost) does not allow the transfer of ownership. 
+It has support for a custom delete function.
+
+`shared_ptr` contains a pointer to a data itself and a pointer to the reference 
+container. In the container we have a pointer, deleter function and a strong 
+reference counter and weak reference counter.
+
+`make_shared` is a bit more efficient implementation of the allocation. The 
+container is allocated together with the actual object.
+
+`enable_shared_from_this` is a class you can derive from. This enables you to 
+do the following:
+
+1. Create a pointer
+2. Create a smart pointer from the pointer
+3. Pass the regular pointer somewhere
+4. Create another smart pointer, but you actually get the same container as 
+   used before.
+
+`weak_ptr` is a smart pointer that only holds a non-owning ("weak") reference. 
+It has a method lock which converts is to a temporary smart pointer. It is 
+useful when things only have to be done if the data still exists.
+
+# The C++ Object model
+
+Source: CppCon 2015: Richard Powell “Intro to the C++ Object Model"
+
+Non-virtual functions are determined on compile time.
+
+Virtual functions are determined on object creation. The location of these 
+functions are kept in a hidden data member called a "vtable" (virtual table). 
+This hidden data member only exists if you have one or more virtual functions.
+
+The copy constructor copies the vtable.
+
+The constructor of a derived class first calls the constructor of the parent 
+class and then overwrites its vtable.
+
+Therefore if we call a virtual method in the constructor of the object it 
+always calls the parent implementation of the virtual function, not the 
+subclass'.
+
+The vtable dramatically increases the size of small objects.
+
+**Never call virtual functions in the constructor.**
+
+**Don't forget to use the keyword override, when you are overriding 
+functions.**
+
+# What's a POD?
+
+# RAII: Resource acquisition is initialization 
+
