@@ -20,63 +20,81 @@ class Container
 
       }
 
-      Container(const Container& c) : start_(allocate_and_copy_(c)),
-                                      finish_(start_ + c.size()),
-                                      end_of_storage_(finish_) {
+      Container(const Container& other) {
+         if (other.size() > 0) {
+            start_ = allocate_and_copy_(other);
+            finish_ = start_ + other.size();
+            end_of_storage_ = finish_;
+         }
       }
 
-      Container(Container &&c) : start_(c.start_),
-                                 finish_(c.finish_),
-                                 end_of_storage_(c.end_of_storage_) {
-         c.start_ = nullptr;
-         c.finish_ = nullptr;
-         c.end_of_storage_ = nullptr;
-
+      Container(Container &&other) : start_(other.start_),
+                                     finish_(other.finish_),
+                                     end_of_storage_(other.end_of_storage_) {
+         other.start_ = nullptr;
+         other.finish_ = nullptr;
+         other.end_of_storage_ = nullptr;
       }
 
-      Container(size_t n) : start_(allocate_(n)), finish_(start_), 
-                            end_of_storage_(start_ + n) {
+      Container(const size_t n)  {
+         if (n > 0) {
+            start_ = allocate_(n);
+            finish_ = start_;
+            end_of_storage_ = start_ + n;
+         }
       }
 
       virtual ~Container() {
          deallocate_(start_);
       }
 
-      size_type size() const {
+      size_type size() const noexcept {
          return finish_ - start_;
       }
 
-      size_type max_size() {
+      size_type max_size() const noexcept {
          return std::numeric_limits<size_type>::max() / sizeof(T);
       }
 
-      size_type capacity() {
-         return end_of_storage_ - finish_;
+      size_type capacity() const noexcept {
+         return end_of_storage_ - start_;
       }
 
-      bool empty() const {
+      bool empty() const noexcept {
          return start_ == finish_;
       }
 
-      // TODO: The return type is wrong, we don't deallocate the current help
-      // memory
-      void operator=(Container& rhs) {
-         start_ = allocate_(rhs.size());
-         finish_ = start_ + rhs.size();
-         end_of_storage_ = finish_;
+      Container<T>& operator=(const Container& rhs) {
+         if (this != &rhs) {
+            if (rhs.size() > 0) {
+               auto new_start = allocate_and_copy_(rhs);
 
-         std::copy(rhs.start_, rhs.finish_, start_);
+               deallocate_(start_);
+
+               start_ = new_start;
+               finish_ = start_ + rhs.size();
+               end_of_storage_ = finish_;
+            } else {
+               deallocate_(start_);
+               start_ = nullptr;
+               finish_ = nullptr;
+               end_of_storage_ = nullptr;
+            }
+         }
+         return *this;
       }
 
-      // TODO: The return type is wrong, we don't deallocate the current help
-      // memory
-      void operator=(Container&& rhs) {
+      Container<T>& operator=(Container&& rhs) noexcept {
          if (this != *rhs) {
+            start_ = rhs.start_;
+            finish_ = rhs.finish_;
+            end_of_storage_ = rhs.end_of_storage_;
 
+            rhs.start_ = nullptr;
+            rhs.finish_ = nullptr;
+            rhs.end_of_storage = nullptr;
          }
-         start_ = rhs.start_;
-         finish_ = rhs.finish_;
-         end_of_storage_ = rhs.end_of_storage_;
+         return *this;
       }
 
    private:
@@ -88,7 +106,10 @@ class Container
          if (n > max_size())
             throw std::bad_alloc();
 
-         return new T[n];
+         if (n > 0)
+            return new T[n];
+         else
+            return nullptr;
       }
 
       void deallocate_(T* p) {
@@ -100,16 +121,16 @@ class Container
             return nullptr;
          } else {
             
-            auto p = allocate_(c.size());
+            auto new_start = allocate_(c.size());
 
             try {
-               std::copy(c.start_, c.finish_, p);
+               std::copy(c.start_, c.finish_, new_start);  // can fail, calls contructors
             } catch (...) {
-               deallocate_(p);
+               deallocate_(new_start);  // cannot fail
                throw;
             }
 
-            return p;
+            return new_start;
          }
       }
 };
