@@ -8,6 +8,7 @@
 #include <cstdlib>  // std::size_t
 #include <new>  // std::bad_alloc
 #include <limits>
+#include <utility>  // std::swap
 
 template <typename T>
 class Container
@@ -28,12 +29,8 @@ class Container
          }
       }
 
-      Container(Container &&other) : start_(other.start_),
-                                     finish_(other.finish_),
-                                     end_of_storage_(other.end_of_storage_) {
-         other.start_ = nullptr;
-         other.finish_ = nullptr;
-         other.end_of_storage_ = nullptr;
+      Container(Container&& other) {
+         swap(other);
       }
 
       Container(const size_t n)  {
@@ -65,36 +62,30 @@ class Container
       }
 
       Container<T>& operator=(const Container& rhs) {
-         if (this != &rhs) {
-            if (rhs.size() > 0) {
-               auto new_start = allocate_and_copy_(rhs);
-
-               deallocate_(start_);
-
-               start_ = new_start;
-               finish_ = start_ + rhs.size();
-               end_of_storage_ = finish_;
-            } else {
-               deallocate_(start_);
-               start_ = nullptr;
-               finish_ = nullptr;
-               end_of_storage_ = nullptr;
-            }
-         }
+         if (this != &rhs)
+            Container{ rhs }.swap(*this);
          return *this;
       }
 
       Container<T>& operator=(Container&& rhs) noexcept {
-         if (this != *rhs) {
-            start_ = rhs.start_;
-            finish_ = rhs.finish_;
-            end_of_storage_ = rhs.end_of_storage_;
-
-            rhs.start_ = nullptr;
-            rhs.finish_ = nullptr;
-            rhs.end_of_storage = nullptr;
+         if (this != &rhs) {
+            clear();
+            swap(rhs); 
          }
          return *this;
+      }
+
+      void clear() noexcept {
+         deallocate_(start_);
+         start_ = nullptr;
+         finish_ = nullptr;
+         end_of_storage_ = nullptr;
+      }
+
+      void swap(Container<T>& other) {
+         std::swap(start_, other.start_);
+         std::swap(finish_, other.finish_);
+         std::swap(end_of_storage_, other.end_of_storage_);
       }
 
    private:

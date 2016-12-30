@@ -213,5 +213,23 @@ functions.**
 
 # What's a POD?
 
-# RAII: Resource acquisition is initialization 
+# RAII: Resource acquisition is initialization
 
+# Operator-overloading
+
+Most operators can be overloaded, with exception of `sizeof` (as other built in 
+operations depend on it, indexing of an array for example), `::` and `.`.
+
+Only use it when the usage is unambiguous what the operator should do.
+
+# When should I use inline my functions?
+
+# Using swap for move assignment
+
+It also reuses code which means it increases the code readability and might 
+decrease the risk of bugs. 
+
+Downsides: Slower. Might be more than 60% slower.
+
+[Link to longer 
+discussion](http://stackoverflow.com/questions/6687388/why-do-some-people-use-swap-for-move-assignments/6687520#6687520)
