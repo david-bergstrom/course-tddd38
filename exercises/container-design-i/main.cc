@@ -27,7 +27,7 @@ int main() {
     print(c2);
 
     std::cout << "\nTime to move!" << std::endl;
-    auto c3 = something();
+    auto c3 {something()};
 
     print(c3);
 
