@@ -33,7 +33,7 @@ The method does not
 
 ## `const_cast`
 
-# io::eof is wrong when used in a loop condition
+# `io::eof` is wrong when used in a loop condition
 
 The method io::eof returns true when a read has failed and does not guarrantee
 the success of the next read.
@@ -67,7 +67,7 @@ needed.
 # Bjarne Stroustrup solution to dangling pointers
 
 Use only pointers for non-owner instances. Use `owner<T*>` to represent owners.
-This allows the usage of analyzis programs which checks only owners delete
+This allows the usage of analysis programs which checks only owners delete
 data.
 
 https://www.youtube.com/watch?v=1OEu9C51K2A
@@ -85,7 +85,7 @@ https://www.youtube.com/watch?v=1OEu9C51K2A
 The name rule, if something has a name it's an _lvalue_, if not then it's a 
 _rvalue_.
 
-# The keyword "Mutable"
+# The keyword "mutable"
 
 A `const` method cannot change any of the member variables of the class
 instance. However if a member variable is marked with the keyword mutable it
