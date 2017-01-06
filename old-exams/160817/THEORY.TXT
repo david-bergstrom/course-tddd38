@@ -1,0 +1,60 @@
+# 1. 
+
+The interface is bad design because it does not imply who owns the newly
+created object. In other words, it becomes unclear where the deallocation
+should be done. Is the object created stored somewhere else by the function,
+if so does it clean up automatically? Does something else need to be done
+manually?
+
+From the solutions:
+
+> It could also point to some static memory, which cannot be deallocated.
+
+# 2.
+
+The keyword `constexpr` is used to denote that a function or variable is to be
+evaluated at compile time. It is useful for meta-programming and array sizes.
+This can make life easier for the developers by reducing the amount of code
+"hard coded", it could be something as simple as degrees to radian conversion.
+Letting the developers write degrees and the compiler translating to radians at
+compile time, resulting in no overhead in the compiled binary.
+
+# 3.
+
+I had an idea using two classes, but the solutions' answer was more clear:
+
+struct Foo
+{
+    Foo(int a)
+        : f_b{a}, f_a{f_b + 2} {}
+
+    int f_a;
+    int f_b;
+};
+
+This will initialize f_a first, then f_b. As f_b is not initialized when f_a
+is, f_a will be assigned to some random value + 2.
+
+# 4.
+
+```{c++}
+class X
+{
+    operator int();
+};
+```
+
+Aah, the assignment said "declare" not "define".
+
+# 5.
+
+```{c++}
+
+```
+
+The class vector could be passed to the function, T would be the type it stores
+and U would be the type of allocator it would use.
+
+From the solutions:
+
+> A template class that takes exactly two template arguments. One simple example is pair:
