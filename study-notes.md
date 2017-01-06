@@ -213,7 +213,11 @@ functions.**
 
 # What's a POD?
 
+TODO: Read more about this
+
 # RAII: Resource acquisition is initialization
+
+TODO: Read more about this
 
 # Operator-overloading
 
@@ -224,6 +228,8 @@ Only use it when the usage is unambiguous what the operator should do.
 
 # When should I use inline my functions?
 
+TODO: Read more about this
+
 # Using swap for move assignment
 
 It also reuses code which means it increases the code readability and might 
@@ -233,3 +239,73 @@ Downsides: Slower. Might be more than 60% slower.
 
 [Link to longer 
 discussion](http://stackoverflow.com/questions/6687388/why-do-some-people-use-swap-for-move-assignments/6687520#6687520)
+
+# `constexpr`
+
+There is a description of this written in one of the example exams (by me).
+
+TODO: Move this here
+
+# Sending arrays by reference
+
+```{c++}
+void f(int (&a)[100]) {
+
+}
+
+int main() {
+  int i[100];
+
+  f(i);
+
+  return 0;
+}
+```
+
+The extra parenthesis around `&a` is to keep the syntax apart from an array of 
+100 int references.
+
+# `decltype` keyword
+
+Used to evaluate the type of a given expression at compile time. The "call" to 
+`decltype` can then be used as types are normally used.
+
+It has also one special case in function declarations, given by the lecture 
+slides:
+
+```
+template<class Container>
+auto end(Container& c) -> decltype(c.end())) // also for const Container&
+{
+  return c.end();
+}
+```
+
+Where `decltype` is used to help with the type interference of `auto`. Note the 
+similarity between this syntax and the syntax for lambda functions.
+
+# Perfect forwarding
+
+# Aggregates
+
+> An aggregate is an array or class with no user-declared constructors, no 
+> private or protected non-static data members, no base classes and no virtual 
+> function.
+
+These can be initialized using curly brackets.
+
+# PODs
+
+Plain old data, has two distinct properties:
+
+1. Supports static initialization
+2. Gives the same memory layout as a struct compiled in C
+
+These requirements allows us to copy them using 
+
+Whether a datastructure fulfills these requirements can be checked using 
+`std::is_pod` defined in the header `<type_traits>`.
+
+The formal requirement was further defined and are explained in more depth on 
+[stack 
+overflow](http://stackoverflow.com/questions/4178175/what-are-aggregates-and-pods-and-how-why-are-they-special/7189821#7189821)
