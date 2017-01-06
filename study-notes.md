@@ -211,10 +211,6 @@ The vtable dramatically increases the size of small objects.
 **Don't forget to use the keyword override, when you are overriding 
 functions.**
 
-# What's a POD?
-
-TODO: Read more about this
-
 # RAII: Resource acquisition is initialization
 
 TODO: Read more about this
