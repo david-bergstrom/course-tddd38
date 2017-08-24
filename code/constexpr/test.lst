@@ -1,0 +1,333 @@
+   1              		.file	"main.cc"
+   2              	# GNU C++14 (GCC) version 6.2.1 20160830 (x86_64-pc-linux-gnu)
+   3              	#	compiled by GNU C version 6.2.1 20160830, GMP version 6.1.1, MPFR version 3.1.4-p1, MPC version 1
+   4              	# warning: MPFR header version 3.1.4-p1 differs from library version 3.1.5.
+   5              	# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+   6              	# options passed:  -D_GNU_SOURCE main.cc -mtune=generic -march=x86-64 -g
+   7              	# -fPIE -fstack-check=specific -fstack-protector-strong -fverbose-asm
+   8              	# options enabled:  -fPIC -fPIE -faggressive-loop-optimizations
+   9              	# -fasynchronous-unwind-tables -fauto-inc-dec -fchkp-check-incomplete-type
+  10              	# -fchkp-check-read -fchkp-check-write -fchkp-instrument-calls
+  11              	# -fchkp-narrow-bounds -fchkp-optimize -fchkp-store-bounds
+  12              	# -fchkp-use-static-bounds -fchkp-use-static-const-bounds
+  13              	# -fchkp-use-wrappers -fcommon -fdelete-null-pointer-checks
+  14              	# -fdwarf2-cfi-asm -fearly-inlining -feliminate-unused-debug-types
+  15              	# -fexceptions -ffunction-cse -fgcse-lm -fgnu-runtime -fgnu-unique -fident
+  16              	# -finline-atomics -fira-hoist-pressure -fira-share-save-slots
+  17              	# -fira-share-spill-slots -fivopts -fkeep-static-consts
+  18              	# -fleading-underscore -flifetime-dse -flto-odr-type-merging -fmath-errno
+  19              	# -fmerge-debug-strings -fpeephole -fplt -fprefetch-loop-arrays
+  20              	# -freg-struct-return -fsched-critical-path-heuristic
+  21              	# -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-interblock
+  22              	# -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec
+  23              	# -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-fusion
+  24              	# -fsemantic-interposition -fshow-column -fsigned-zeros
+  25              	# -fsplit-ivs-in-unroller -fssa-backprop -fstack-protector-strong
+  26              	# -fstdarg-opt -fstrict-volatile-bitfields -fsync-libcalls -ftrapping-math
+  27              	# -ftree-cselim -ftree-forwprop -ftree-loop-if-convert -ftree-loop-im
+  28              	# -ftree-loop-ivcanon -ftree-loop-optimize -ftree-parallelize-loops=
+  29              	# -ftree-phiprop -ftree-reassoc -ftree-scev-cprop -funit-at-a-time
+  30              	# -funwind-tables -fverbose-asm -fzero-initialized-in-bss
+  31              	# -m128bit-long-double -m64 -m80387 -malign-stringops
+  32              	# -mavx256-split-unaligned-load -mavx256-split-unaligned-store
+  33              	# -mfancy-math-387 -mfp-ret-in-387 -mfxsr -mglibc -mieee-fp
+  34              	# -mlong-double-80 -mmmx -mno-sse4 -mpush-args -mred-zone -msse -msse2
+  35              	# -mstv -mtls-direct-seg-refs -mvzeroupper
+  36              	
+  37              		.text
+  38              	.Ltext0:
+  39              		.section	.rodata
+  42              	_ZStL19piecewise_construct:
+  43 0000 00       		.zero	1
+  44              		.local	_ZStL8__ioinit
+  45              		.comm	_ZStL8__ioinit,1,1
+  46 0001 00000000 		.align 8
+  46      000000
+  49              	_ZL2PI:
+  50 0008 182D4454 		.long	1413754136
+  51 000c FB210940 		.long	1074340347
+  52              		.text
+  53              		.globl	main
+  55              	main:
+  56              	.LFB1452:
+  57              		.file 1 "main.cc"
+   1:main.cc       **** #include<iostream>
+   2:main.cc       **** 
+   3:main.cc       **** constexpr double PI = 3.14159265358979323846;
+   4:main.cc       **** 
+   5:main.cc       **** constexpr long long factorial(int n) {
+   6:main.cc       ****     if (n == 1) {
+   7:main.cc       ****         return 1;
+   8:main.cc       ****     } else {
+   9:main.cc       ****         return n * factorial(n - 1);
+  10:main.cc       ****     }
+  11:main.cc       **** }
+  12:main.cc       **** 
+  13:main.cc       **** constexpr double to_radians(double d) {
+  14:main.cc       ****     return d * PI/180;
+  15:main.cc       **** }
+  16:main.cc       **** 
+  17:main.cc       **** int main() {
+  58              		.loc 1 17 0
+  59              		.cfi_startproc
+  60 0000 55       		pushq	%rbp	#
+  61              		.cfi_def_cfa_offset 16
+  62              		.cfi_offset 6, -16
+  63 0001 4889E5   		movq	%rsp, %rbp	#,
+  64              		.cfi_def_cfa_register 6
+  65 0004 488DA424 		leaq	-4160(%rsp), %rsp	#,
+  65      C0EFFFFF 
+  66 000c 48830C24 		orq	$0, (%rsp)	#,
+  66      00
+  67 0011 488DA424 		leaq	4128(%rsp), %rsp	#,
+  67      20100000 
+  18:main.cc       ****     constexpr auto x = factorial(20); 
+  68              		.loc 1 18 0
+  69 0019 48B80000 		movabsq	$2432902008176640000, %rax	#, tmp96
+  69      B4827C67 
+  69      C321
+  70 0023 488945F0 		movq	%rax, -16(%rbp)	# tmp96, x
+  19:main.cc       ****     std::cout << x << std::endl;
+  71              		.loc 1 19 0
+  72 0027 48BE0000 		movabsq	$2432902008176640000, %rsi	#,
+  72      B4827C67 
+  72      C321
+  73 0031 488D3D00 		leaq	_ZSt4cout(%rip), %rdi	#,
+  73      000000
+  74 0038 E8000000 		call	_ZNSolsEx@PLT	#
+  74      00
+  75 003d 4889C2   		movq	%rax, %rdx	#, _4
+  76 0040 488B0500 		movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rax	#, tmp91
+  76      000000
+  77 0047 4889C6   		movq	%rax, %rsi	# tmp91,
+  78 004a 4889D7   		movq	%rdx, %rdi	# _4,
+  79 004d E8000000 		call	_ZNSolsEPFRSoS_E@PLT	#
+  79      00
+  20:main.cc       ****     constexpr auto y = to_radians(180);
+  80              		.loc 1 20 0
+  81 0052 F20F1005 		movsd	.LC0(%rip), %xmm0	#, tmp92
+  81      00000000 
+  82 005a F20F1145 		movsd	%xmm0, -8(%rbp)	# tmp92, y
+  82      F8
+  21:main.cc       ****     std::cout << y << std::endl;
+  83              		.loc 1 21 0
+  84 005f 488B0500 		movq	.LC0(%rip), %rax	#, tmp93
+  84      000000
+  85 0066 488945E8 		movq	%rax, -24(%rbp)	# tmp93, %sfp
+  86 006a F20F1045 		movsd	-24(%rbp), %xmm0	# %sfp,
+  86      E8
+  87 006f 488D3D00 		leaq	_ZSt4cout(%rip), %rdi	#,
+  87      000000
+  88 0076 E8000000 		call	_ZNSolsEd@PLT	#
+  88      00
+  89 007b 4889C2   		movq	%rax, %rdx	#, _9
+  90 007e 488B0500 		movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rax	#, tmp94
+  90      000000
+  91 0085 4889C6   		movq	%rax, %rsi	# tmp94,
+  92 0088 4889D7   		movq	%rdx, %rdi	# _9,
+  93 008b E8000000 		call	_ZNSolsEPFRSoS_E@PLT	#
+  93      00
+  22:main.cc       **** }
+  94              		.loc 1 22 0
+  95 0090 B8000000 		movl	$0, %eax	#, _12
+  95      00
+  96 0095 C9       		leave
+  97              		.cfi_def_cfa 7, 8
+  98 0096 C3       		ret
+  99              		.cfi_endproc
+ 100              	.LFE1452:
+ 103              	_Z41__static_initialization_and_destruction_0ii:
+ 104              	.LFB1895:
+ 105              		.loc 1 22 0
+ 106              		.cfi_startproc
+ 107 0097 55       		pushq	%rbp	#
+ 108              		.cfi_def_cfa_offset 16
+ 109              		.cfi_offset 6, -16
+ 110 0098 4889E5   		movq	%rsp, %rbp	#,
+ 111              		.cfi_def_cfa_register 6
+ 112 009b 488DA424 		leaq	-4144(%rsp), %rsp	#,
+ 112      D0EFFFFF 
+ 113 00a3 48830C24 		orq	$0, (%rsp)	#,
+ 113      00
+ 114 00a8 488DA424 		leaq	4128(%rsp), %rsp	#,
+ 114      20100000 
+ 115 00b0 897DFC   		movl	%edi, -4(%rbp)	# __initialize_p, __initialize_p
+ 116 00b3 8975F8   		movl	%esi, -8(%rbp)	# __priority, __priority
+ 117              		.loc 1 22 0
+ 118 00b6 837DFC01 		cmpl	$1, -4(%rbp)	#, __initialize_p
+ 119 00ba 7532     		jne	.L5	#,
+ 120              		.loc 1 22 0 is_stmt 0 discriminator 1
+ 121 00bc 817DF8FF 		cmpl	$65535, -8(%rbp)	#, __priority
+ 121      FF0000
+ 122 00c3 7529     		jne	.L5	#,
+ 123              		.file 2 "/usr/include/c++/6.2.1/iostream"
+   1:/usr/include/c++/6.2.1/iostream **** // Standard iostream objects -*- C++ -*-
+   2:/usr/include/c++/6.2.1/iostream **** 
+   3:/usr/include/c++/6.2.1/iostream **** // Copyright (C) 1997-2016 Free Software Foundation, Inc.
+   4:/usr/include/c++/6.2.1/iostream **** //
+   5:/usr/include/c++/6.2.1/iostream **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/c++/6.2.1/iostream **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/c++/6.2.1/iostream **** // terms of the GNU General Public License as published by the
+   8:/usr/include/c++/6.2.1/iostream **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/c++/6.2.1/iostream **** // any later version.
+  10:/usr/include/c++/6.2.1/iostream **** 
+  11:/usr/include/c++/6.2.1/iostream **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/c++/6.2.1/iostream **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/c++/6.2.1/iostream **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/c++/6.2.1/iostream **** // GNU General Public License for more details.
+  15:/usr/include/c++/6.2.1/iostream **** 
+  16:/usr/include/c++/6.2.1/iostream **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/c++/6.2.1/iostream **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/c++/6.2.1/iostream **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/c++/6.2.1/iostream **** 
+  20:/usr/include/c++/6.2.1/iostream **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/c++/6.2.1/iostream **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/c++/6.2.1/iostream **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/c++/6.2.1/iostream **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/c++/6.2.1/iostream **** 
+  25:/usr/include/c++/6.2.1/iostream **** /** @file include/iostream
+  26:/usr/include/c++/6.2.1/iostream ****  *  This is a Standard C++ Library header.
+  27:/usr/include/c++/6.2.1/iostream ****  */
+  28:/usr/include/c++/6.2.1/iostream **** 
+  29:/usr/include/c++/6.2.1/iostream **** //
+  30:/usr/include/c++/6.2.1/iostream **** // ISO C++ 14882: 27.3  Standard iostream objects
+  31:/usr/include/c++/6.2.1/iostream **** //
+  32:/usr/include/c++/6.2.1/iostream **** 
+  33:/usr/include/c++/6.2.1/iostream **** #ifndef _GLIBCXX_IOSTREAM
+  34:/usr/include/c++/6.2.1/iostream **** #define _GLIBCXX_IOSTREAM 1
+  35:/usr/include/c++/6.2.1/iostream **** 
+  36:/usr/include/c++/6.2.1/iostream **** #pragma GCC system_header
+  37:/usr/include/c++/6.2.1/iostream **** 
+  38:/usr/include/c++/6.2.1/iostream **** #include <bits/c++config.h>
+  39:/usr/include/c++/6.2.1/iostream **** #include <ostream>
+  40:/usr/include/c++/6.2.1/iostream **** #include <istream>
+  41:/usr/include/c++/6.2.1/iostream **** 
+  42:/usr/include/c++/6.2.1/iostream **** namespace std _GLIBCXX_VISIBILITY(default)
+  43:/usr/include/c++/6.2.1/iostream **** {
+  44:/usr/include/c++/6.2.1/iostream **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  45:/usr/include/c++/6.2.1/iostream **** 
+  46:/usr/include/c++/6.2.1/iostream ****   /**
+  47:/usr/include/c++/6.2.1/iostream ****    *  @name Standard Stream Objects
+  48:/usr/include/c++/6.2.1/iostream ****    *
+  49:/usr/include/c++/6.2.1/iostream ****    *  The &lt;iostream&gt; header declares the eight <em>standard stream
+  50:/usr/include/c++/6.2.1/iostream ****    *  objects</em>.  For other declarations, see
+  51:/usr/include/c++/6.2.1/iostream ****    *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/io.html
+  52:/usr/include/c++/6.2.1/iostream ****    *  and the @link iosfwd I/O forward declarations @endlink
+  53:/usr/include/c++/6.2.1/iostream ****    *
+  54:/usr/include/c++/6.2.1/iostream ****    *  They are required by default to cooperate with the global C
+  55:/usr/include/c++/6.2.1/iostream ****    *  library's @c FILE streams, and to be available during program
+  56:/usr/include/c++/6.2.1/iostream ****    *  startup and termination. For more information, see the section of the
+  57:/usr/include/c++/6.2.1/iostream ****    *  manual linked to above.
+  58:/usr/include/c++/6.2.1/iostream ****   */
+  59:/usr/include/c++/6.2.1/iostream ****   //@{
+  60:/usr/include/c++/6.2.1/iostream ****   extern istream cin;		/// Linked to standard input
+  61:/usr/include/c++/6.2.1/iostream ****   extern ostream cout;		/// Linked to standard output
+  62:/usr/include/c++/6.2.1/iostream ****   extern ostream cerr;		/// Linked to standard error (unbuffered)
+  63:/usr/include/c++/6.2.1/iostream ****   extern ostream clog;		/// Linked to standard error (buffered)
+  64:/usr/include/c++/6.2.1/iostream **** 
+  65:/usr/include/c++/6.2.1/iostream **** #ifdef _GLIBCXX_USE_WCHAR_T
+  66:/usr/include/c++/6.2.1/iostream ****   extern wistream wcin;		/// Linked to standard input
+  67:/usr/include/c++/6.2.1/iostream ****   extern wostream wcout;	/// Linked to standard output
+  68:/usr/include/c++/6.2.1/iostream ****   extern wostream wcerr;	/// Linked to standard error (unbuffered)
+  69:/usr/include/c++/6.2.1/iostream ****   extern wostream wclog;	/// Linked to standard error (buffered)
+  70:/usr/include/c++/6.2.1/iostream **** #endif
+  71:/usr/include/c++/6.2.1/iostream ****   //@}
+  72:/usr/include/c++/6.2.1/iostream **** 
+  73:/usr/include/c++/6.2.1/iostream ****   // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  74:/usr/include/c++/6.2.1/iostream ****   static ios_base::Init __ioinit;
+ 124              		.loc 2 74 0 is_stmt 1
+ 125 00c5 488D3D00 		leaq	_ZStL8__ioinit(%rip), %rdi	#,
+ 125      000000
+ 126 00cc E8000000 		call	_ZNSt8ios_base4InitC1Ev@PLT	#
+ 126      00
+ 127 00d1 488D1500 		leaq	__dso_handle(%rip), %rdx	#,
+ 127      000000
+ 128 00d8 488D3500 		leaq	_ZStL8__ioinit(%rip), %rsi	#,
+ 128      000000
+ 129 00df 488B0500 		movq	_ZNSt8ios_base4InitD1Ev@GOTPCREL(%rip), %rax	#, tmp87
+ 129      000000
+ 130 00e6 4889C7   		movq	%rax, %rdi	# tmp87,
+ 131 00e9 E8000000 		call	__cxa_atexit@PLT	#
+ 131      00
+ 132              	.L5:
+ 133              		.loc 1 22 0
+ 134 00ee 90       		nop
+ 135 00ef C9       		leave
+ 136              		.cfi_def_cfa 7, 8
+ 137 00f0 C3       		ret
+ 138              		.cfi_endproc
+ 139              	.LFE1895:
+ 142              	_GLOBAL__sub_I_main:
+ 143              	.LFB1896:
+ 144              		.loc 1 22 0
+ 145              		.cfi_startproc
+ 146 00f1 55       		pushq	%rbp	#
+ 147              		.cfi_def_cfa_offset 16
+ 148              		.cfi_offset 6, -16
+ 149 00f2 4889E5   		movq	%rsp, %rbp	#,
+ 150              		.cfi_def_cfa_register 6
+ 151 00f5 488DA424 		leaq	-4128(%rsp), %rsp	#,
+ 151      E0EFFFFF 
+ 152 00fd 48830C24 		orq	$0, (%rsp)	#,
+ 152      00
+ 153 0102 488DA424 		leaq	4128(%rsp), %rsp	#,
+ 153      20100000 
+ 154              		.loc 1 22 0
+ 155 010a BEFFFF00 		movl	$65535, %esi	#,
+ 155      00
+ 156 010f BF010000 		movl	$1, %edi	#,
+ 156      00
+ 157 0114 E87EFFFF 		call	_Z41__static_initialization_and_destruction_0ii	#
+ 157      FF
+ 158 0119 5D       		popq	%rbp	#
+ 159              		.cfi_def_cfa 7, 8
+ 160 011a C3       		ret
+ 161              		.cfi_endproc
+ 162              	.LFE1896:
+ 164              		.section	.init_array,"aw"
+ 165              		.align 8
+ 166 0000 00000000 		.quad	_GLOBAL__sub_I_main
+ 166      00000000 
+ 167              		.section	.rodata
+ 168              		.align 8
+ 169              	.LC0:
+ 170 0010 182D4454 		.long	1413754136
+ 171 0014 FB210940 		.long	1074340347
+ 172              		.text
+ 173              	.Letext0:
+ 174              		.file 3 "/usr/include/c++/6.2.1/cwchar"
+ 175              		.file 4 "/usr/include/c++/6.2.1/bits/exception_ptr.h"
+ 176              		.file 5 "/usr/include/c++/6.2.1/x86_64-pc-linux-gnu/bits/c++config.h"
+ 177              		.file 6 "/usr/include/c++/6.2.1/type_traits"
+ 178              		.file 7 "/usr/include/c++/6.2.1/bits/cpp_type_traits.h"
+ 179              		.file 8 "/usr/include/c++/6.2.1/bits/stl_pair.h"
+ 180              		.file 9 "/usr/include/c++/6.2.1/debug/debug.h"
+ 181              		.file 10 "/usr/include/c++/6.2.1/bits/char_traits.h"
+ 182              		.file 11 "/usr/include/c++/6.2.1/cstdint"
+ 183              		.file 12 "/usr/include/c++/6.2.1/clocale"
+ 184              		.file 13 "/usr/include/c++/6.2.1/new"
+ 185              		.file 14 "/usr/include/c++/6.2.1/cstdlib"
+ 186              		.file 15 "/usr/include/c++/6.2.1/cstdio"
+ 187              		.file 16 "/usr/include/c++/6.2.1/bits/basic_string.h"
+ 188              		.file 17 "/usr/include/c++/6.2.1/system_error"
+ 189              		.file 18 "/usr/include/c++/6.2.1/bits/ios_base.h"
+ 190              		.file 19 "/usr/include/c++/6.2.1/cwctype"
+ 191              		.file 20 "/usr/include/c++/6.2.1/iosfwd"
+ 192              		.file 21 "/usr/include/c++/6.2.1/bits/predefined_ops.h"
+ 193              		.file 22 "/usr/include/c++/6.2.1/ext/new_allocator.h"
+ 194              		.file 23 "/usr/include/c++/6.2.1/ext/numeric_traits.h"
+ 195              		.file 24 "/usr/include/stdio.h"
+ 196              		.file 25 "/usr/include/libio.h"
+ 197              		.file 26 "<built-in>"
+ 198              		.file 27 "/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include/stddef.h"
+ 199              		.file 28 "/usr/include/wchar.h"
+ 200              		.file 29 "/usr/include/time.h"
+ 201              		.file 30 "/usr/include/stdint.h"
+ 202              		.file 31 "/usr/include/locale.h"
+ 203              		.file 32 "/usr/include/bits/types.h"
+ 204              		.file 33 "/usr/include/c++/6.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h"
+ 205              		.file 34 "/usr/include/stdlib.h"
+ 206              		.file 35 "/usr/include/_G_config.h"
+ 207              		.file 36 "/usr/include/bits/sys_errlist.h"
+ 208              		.file 37 "/usr/include/errno.h"
+ 209              		.file 38 "/usr/include/wctype.h"

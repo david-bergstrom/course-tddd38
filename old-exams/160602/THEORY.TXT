@@ -1,0 +1,67 @@
+# 1.
+
+The following code compiles and runs without errors. The namespace of endl is
+infered by the argument's (std::cout) namespace (std::).
+
+```
+#include <iostream>
+int main()
+{
+    std::cout << "Hello World";
+    endl(std::cout);
+}
+```
+
+# 2.
+
+Dereferencing a nullptr.
+
+```
+int* i = nullptr;
+std::cout << *i << std::endl;
+```
+
+Accessing unitialized memory, we will get whatever was there before.
+
+```
+bool b;
+
+if (b) {
+    std::cout << "b was true" << std::endl;
+} else {
+    std::cout << "b was walse" << std::endl;
+}
+```
+
+# 3.
+
+It is more general, as it allows for other user-specific specialization.
+
+Answers:
+
+`std::begin` has overloads for standard arrays as well.
+
+# 4.
+
+Implementation defined behavior means the implementors of the compiler/library
+can decide what the code should do in that situation. Undefined behaviour means
+the case is not considered in the implementation and the implementation depends
+on how the hardware, software or run state of the machine. It can change
+between implementations and on different runs.
+
+The example answer:
+
+> Implementation defined behavior is still valid behavior, only that it could
+> be different on other systems. Simple example is the size of a pointer. A
+> program with undefined behavor is faulty and might "work" but you can't expect
+> anything to work.
+
+# 5.
+
+It one of the major principles of C++. All new features should not cause any
+overhead if you are not using them. This means that old code written for some
+old C++ standard should not run slower when compiled with a newer compiler.
+
+The example answer:
+
+> Applies to all features. Not only speed but memory usage, binary size etc.
